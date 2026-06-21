@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abhishek Patwardhan — Software Engineer</title>
+<meta name="description" content="Abhishek Patwardhan — Backend &amp; Distributed Systems Engineer. Spring Boot, Microservices, AI/ML.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- background node-graph canvas (signature element) -->
+<canvas id="net-canvas"></canvas>
+<div class="grain"></div>
+
+<!-- custom cursor -->
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- progress bar -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#hero" class="nav__logo">AMP<span class="dot">.</span></a>
+  <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav__links" id="navLinks">
+    <li><a href="#about"><span class="path">~/</span>about</a></li>
+    <li><a href="#experience"><span class="path">~/</span>experience</a></li>
+    <li><a href="#projects"><span class="path">~/</span>projects</a></li>
+    <li><a href="#skills"><span class="path">~/</span>skills</a></li>
+    <li><a href="#contact" class="nav__cta"><span class="path">~/</span>contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="hero">
+  <div class="hero__inner">
+    <p class="hero__eyebrow"><span class="status-dot"></span> open to opportunities — based in Mumbai, India</p>
+    <h1 class="hero__title">
+      <span class="hero__line" data-line>Abhishek</span>
+      <span class="hero__line hero__line--accent" data-line>Patwardhan</span>
+    </h1>
+    <div class="hero__terminal">
+      <div class="hero__terminal-bar">
+        <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+        <span class="hero__terminal-title">whoami.sh</span>
+      </div>
+      <div class="hero__terminal-body">
+        <p><span class="prompt">&gt;</span> <span id="typedRole" class="typed"></span><span class="cursor-blink">_</span></p>
+      </div>
+    </div>
+    <p class="hero__desc">
+      I build backend systems and distributed architectures that hold up under real load — microservices, event-driven pipelines, and the occasional LLM assistant that saves a team 40+ minutes a day. Currently SDE I at <strong>Syspro Technologies</strong>, fresh off an M.S. in Computer Science from the University of Georgia.
+    </p>
+    <div class="hero__actions">
+      <a href="#projects" class="btn btn--primary">View Projects <span class="arrow">→</span></a>
+      <a href="Abhishek_Patwardhan_Resume.pdf" download class="btn btn--ghost">Download Résumé</a>
+    </div>
+    <!-- <div class="hero__stats">
+      <div class="stat"><span class="stat__num" data-count="44">0</span><span class="stat__label">min saved daily via LLM build-report assistant</span></div>
+      <div class="stat"><span class="stat__num" data-count="11">0</span><span class="stat__label">microservices shipped in StopByShow</span></div>
+      <div class="stat"><span class="stat__num" data-count="10000" data-suffix="+">0</span><span class="stat__label">concurrent users supported</span></div>
+      <div class="stat"><span class="stat__num" data-count="395" data-decimal="true">0</span><span class="stat__label">GPA · M.S. Computer Science</span></div>
+    </div> -->
+  </div>
+  <div class="hero__scroll" aria-hidden="true">
+    <span>scroll</span>
+    <div class="hero__scroll-line"><div class="hero__scroll-dot"></div></div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="section__head">
+      <p class="eyebrow">01 — about</p>
+      <h2 class="section__title">From Mumbai classrooms to <span class="accent">distributed clusters.</span></h2>
+    </div>
+    <div class="about__grid">
+      <div class="about__visual">
+        <div class="profile-panel">
+          <div class="profile-panel__mono">AP</div>
+          <h3 class="profile-panel__name">Abhishek Patwardhan</h3>
+          <p class="profile-panel__role">Software Engineer</p>
+          <div class="profile-panel__divider"></div>
+          <ul class="profile-panel__list">
+            <li><span class="profile-panel__dot"></span>Backend &amp; Distributed Systems</li>
+            <li><span class="profile-panel__dot"></span>Microservices &amp; Event-driven Architecture</li>
+            <li><span class="profile-panel__dot"></span>Applied AI / LLM Tooling</li>
+          </ul>
+        </div>
+      </div>
+      <div class="about__text">
+        <p>I'm a backend-leaning software engineer who likes systems that talk to each other — message queues, service discovery, consensus, the kind of plumbing most people never see until it breaks. My M.S. thesis work involved fine-tuning a Phi-3 model and building an adaptive learning engine that genuinely moved the needle: <strong>80% of students</strong> in the adaptive cohort outperformed the self-paced control group.</p>
+        <p>At Syspro, I split time between hardening Payment &amp; Test microservices for 1,000+ concurrent requests and building internal AI tooling — including a Claude API assistant that cut build-report analysis from 58 minutes to 14. I care about the unglamorous stuff: CI/CD that doesn't break at 2am, queries that don't fall over at scale, and code reviews that actually catch things.</p>
+        <a href="#experience" class="text-link">See the full timeline <span class="arrow">→</span></a>
+      </div>
+      <div class="about__card">
+        <div class="about__card-row"><span>Location</span><span>Mumbai, India</span></div>
+        <div class="about__card-row"><span>Role</span><span>Software Development Engineer I</span></div>
+        <div class="about__card-row"><span>Focus</span><span>Backend · Distributed Systems · AI</span></div>
+        <div class="about__card-row"><span>Education</span><span>M.S. CS, Univ. of Georgia (3.95)</span></div>
+        <div class="about__card-row"><span>Certified</span><span>AWS Cloud Practitioner</span></div>
+        <div class="about__card-row"><span>Status</span><span class="live"><span class="status-dot"></span> Open to relocation</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section" id="experience">
+    <div class="section__head">
+      <p class="eyebrow">02 — experience</p>
+      <h2 class="section__title">A log of what I've <span class="accent">shipped.</span></h2>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline__line"><div class="timeline__progress" id="timelineProgress"></div></div>
+
+      <article class="timeline__item">
+        <div class="timeline__node"></div>
+        <div class="timeline__card">
+          <div class="timeline__card-head">
+            <div class="org-badge org-badge--syspro" aria-hidden="true">
+              <!-- <svg viewBox="0 0 48 48"><polygon points="24,4 44,16 44,32 24,44 4,32 4,16" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="24" r="7" fill="currentColor"/></svg> -->
+              <img src="./images/syspro.png" alt="Syspro Technologies Logo">
+            </div>
+            <div>
+              <p class="timeline__date">Aug 2025 — May 2026</p>
+              <h3 class="timeline__role">Software Development Engineer I</h3>
+              <p class="timeline__org">Syspro Technologies · Plano, TX, USA</p>
+            </div>
+          </div>
+          <ul class="timeline__list">
+            <li>Implemented a Claude API-powered LLM assistant to analyze daily build reports — cut analysis time from <strong>58 to 14 minutes</strong>, saving ~44 minutes every morning.</li>
+            <li>Built Payment &amp; Test microservices (Spring Boot, Spring MVC, JPA, Hibernate, REST) handling <strong>1,000+ concurrent requests</strong> in an Agile/Scrum team.</li>
+            <li>Migrated 8 REST endpoints to GraphQL for mobile clients without duplicating APIs — <strong>25% faster</strong> query response by removing legacy fields.</li>
+            <li>Set up Jenkins + GitHub Actions CI/CD for nightly regression on Linux agents — saved <strong>40+ hours/month</strong> of manual verification; wrote SQL to debug performance regressions.</li>
+          </ul>
+          <div class="timeline__tags">
+            <span>Spring Boot</span><span>GraphQL</span><span>Jenkins</span><span>Claude API</span><span>CI/CD</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="timeline__item">
+        <div class="timeline__node"></div>
+        <div class="timeline__card">
+          <div class="timeline__card-head">
+            <div class="org-badge org-badge--uga" aria-hidden="true">
+              <!-- <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="2"/><path d="M14 28 L24 14 L34 28 Z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="24" r="3" fill="currentColor"/></svg> -->
+              <img src="./images/uga.png" alt="Syspro Technologies Logo">
+            </div>
+            <div>
+              <p class="timeline__date">Aug 2024 — Jun 2025</p>
+              <h3 class="timeline__role">Graduate Research Assistant</h3>
+              <p class="timeline__org">University of Georgia · Athens, GA, USA</p>
+            </div>
+          </div>
+          <ul class="timeline__list">
+            <li>Built an adaptive learning engine (NCD model) recommending videos by weak topic — <strong>80%</strong> of adaptive-cohort students outscored the self-paced control on their second assessment.</li>
+            <li>Fine-tuned a Phi-3 LLM on 25 instructional videos, raising context-restricted accuracy from <strong>65% to 85%</strong> across 300+ test prompts, including Claude-generated edge cases.</li>
+            <li>Helped deploy and maintain a Django–PostgreSQL backend on AWS EC2, supporting ~2,000 daily API requests for 100+ students across 20 topics with role-based auth.</li>
+            <li>Contributed to a role-gated EdTech platform with adaptive and self-paced cohorts across 4 iterative sprints.</li>
+          </ul>
+          <div class="timeline__tags">
+            <span>Phi-3</span><span>Django</span><span>PostgreSQL</span><span>AWS EC2</span><span>Adaptive ML</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section section--projects" id="projects">
+    <div class="section__head">
+      <p class="eyebrow">03 — projects</p>
+      <h2 class="section__title">Systems I built <span class="accent">for fun (mostly).</span></h2>
+    </div>
+
+    <div class="projects__grid">
+
+      <article class="project project--featured" data-tilt>
+        <div class="project__visual">
+          <span class="project__visual-label">EVENT-DRIVEN ARCHITECTURE</span>
+          <!-- <div class="micro-nodes" data-nodes="11"></div> -->
+          <img src="./images/stopbyshow.png"
+          alt="StopByShow Project Screenshot"
+          class="project__image">
+        </div>
+        <div class="project__body">
+          <p class="project__meta">Featured · Event-driven microservices</p>
+          <h3 class="project__title">StopByShow</h3>
+          <p class="project__desc">Movie ticket booking platform built across <strong>11 microservices</strong> with an event-driven architecture on RabbitMQ, supporting nearly 10,000 concurrent users. Spring Boot's IoC + Spring Data JPA keep service layers clean; 10+ endpoints secured with JWT, RBAC, and OAuth2.0.</p>
+          <div class="project__impact">
+            <div><strong>11</strong><span>microservices</span></div>
+            <div><strong>10K+</strong><span>concurrent users</span></div>
+            <div><strong>85%</strong><span>test coverage</span></div>
+          </div>
+          <ul class="project__highlights">
+            <li>85% test coverage via JUnit + Mockito across all service layers</li>
+            <li>RabbitMQ event bus decouples booking, payment, and notification flows</li>
+          </ul>
+          <div class="project__tags"><span>Spring Boot</span><span>RabbitMQ</span><span>Docker</span><span>JWT</span><span>OAuth2.0</span><span>MySQL</span></div>
+          <a href="https://github.com/AbhiMP2804" target="_blank" rel="noopener" class="text-link">View on GitHub <span class="arrow">→</span></a>
+        </div>
+      </article>
+
+      <article class="project" data-tilt>
+        <div class="project__visual project__visual--small">
+          <svg viewBox="0 0 320 140" class="diagram diagram--search">
+            <rect x="20" y="20" width="280" height="28" rx="14" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".5"/>
+            <circle cx="38" cy="34" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="42" y1="38" x2="48" y2="44" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="60" y="29" width="160" height="10" rx="3" fill="currentColor" opacity=".18" class="pulse-fill"/>
+            <g opacity=".7">
+              <rect x="20" y="70" width="80" height="50" rx="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <rect x="120" y="70" width="80" height="50" rx="6" fill="none" stroke="currentColor" stroke-width="1.5" class="result-card"/>
+              <rect x="220" y="70" width="80" height="50" rx="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            </g>
+          </svg>
+        </div>
+        <p class="project__meta">Search &amp; Security</p>
+        <h3 class="project__title">Restaurant Review Platform</h3>
+        <p class="project__desc">Spring Security + Keycloak RBAC across 6 endpoints; Elasticsearch full-text search by pincode, locality, and cuisine cut search time by <strong>65%</strong> over direct DB queries.</p>
+        <div class="project__impact project__impact--inline"><div><strong>65%</strong><span>faster search</span></div><div><strong>6</strong><span>secured endpoints</span></div></div>
+        <div class="project__tags"><span>Spring Security</span><span>Keycloak</span><span>Elasticsearch</span><span>TypeScript</span></div>
+        <a href="https://github.com/AbhiMP2804" target="_blank" rel="noopener" class="text-link">View on GitHub <span class="arrow">→</span></a>
+      </article>
+
+      <article class="project" data-tilt>
+        <div class="project__visual project__visual--small">
+          <svg viewBox="0 0 320 140" class="diagram diagram--ring">
+            <circle cx="160" cy="70" r="50" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 5" opacity=".5"/>
+            <g class="ring-nodes"></g>
+          </svg>
+        </div>
+        <p class="project__meta">Distributed Systems</p>
+        <h3 class="project__title">Consistent Hashing Naming Service</h3>
+        <p class="project__desc">A distributed naming service across <strong>10+ nodes</strong> over raw TCP sockets — handles node entry, exit, and key transfer for service discovery, confirming near-optimal 1/N key redistribution across 500+ key-value pairs.</p>
+        <div class="project__impact project__impact--inline"><div><strong>10+</strong><span>nodes</span></div><div><strong>500+</strong><span>keys redistributed</span></div></div>
+        <div class="project__tags"><span>Java</span><span>TCP Sockets</span><span>Consistent Hashing</span></div>
+        <a href="https://github.com/AbhiMP2804" target="_blank" rel="noopener" class="text-link">View on GitHub <span class="arrow">→</span></a>
+      </article>
+
+      <article class="project" data-tilt>
+        <div class="project__visual project__visual--small">
+          <svg viewBox="0 0 320 140" class="diagram diagram--multicast">
+            <circle cx="60" cy="70" r="14" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <text x="60" y="74" text-anchor="middle" font-size="9" fill="currentColor" font-family="JetBrains Mono">C</text>
+            <g class="multicast-dots">
+              <circle cx="220" cy="30" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="250" cy="70" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="220" cy="110" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="74" y1="65" x2="210" y2="32" stroke="currentColor" stroke-width="1.2" opacity=".4"/>
+              <line x1="74" y1="70" x2="240" y2="70" stroke="currentColor" stroke-width="1.2" opacity=".4"/>
+              <line x1="74" y1="76" x2="210" y2="106" stroke="currentColor" stroke-width="1.2" opacity=".4"/>
+              <circle r="3" fill="currentColor" class="packet packet--1"/>
+              <circle r="3" fill="currentColor" class="packet packet--2"/>
+              <circle r="3" fill="currentColor" class="packet packet--3"/>
+            </g>
+          </svg>
+        </div>
+        <p class="project__meta">Multithreading</p>
+        <h3 class="project__title">Persistent Async Multicast System</h3>
+        <p class="project__desc">A multithreaded coordinator–participant system guaranteeing <strong>zero message loss</strong> for reconnecting nodes, verified across 5s, 1min, and 5min buffer thresholds.</p>
+        <div class="project__impact project__impact--inline"><div><strong>0</strong><span>messages lost</span></div><div><strong>3</strong><span>buffer thresholds tested</span></div></div>
+        <div class="project__tags"><span>Java</span><span>Multithreading</span><span>Distributed Systems</span></div>
+        <a href="https://github.com/AbhiMP2804" target="_blank" rel="noopener" class="text-link">View on GitHub <span class="arrow">→</span></a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <div class="section__head">
+      <p class="eyebrow">04 — skills</p>
+      <h2 class="section__title">The <span class="accent">stack</span> behind it all.</h2>
+    </div>
+
+    <div class="skills__grid">
+      <div class="skill-card">
+        <div class="skill-card__head">
+          <span class="skill-icon"><svg viewBox="0 0 24 24"><path d="M8 4 3 12l5 8M16 4l5 8-5 8M14 3l-4 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <h3>Languages</h3>
+        </div>
+        <div class="ring-row">
+          <div class="ring" data-pct="92">
+            <svg viewBox="0 0 80 80"><circle class="ring__bg" cx="40" cy="40" r="34"/><circle class="ring__fg" cx="40" cy="40" r="34"/></svg>
+            <span class="ring__label">Java</span><span class="ring__pct">92%</span>
+          </div>
+          <div class="ring" data-pct="80">
+            <svg viewBox="0 0 80 80"><circle class="ring__bg" cx="40" cy="40" r="34"/><circle class="ring__fg" cx="40" cy="40" r="34"/></svg>
+            <span class="ring__label">Python</span><span class="ring__pct">80%</span>
+          </div>
+          <div class="ring" data-pct="75">
+            <svg viewBox="0 0 80 80"><circle class="ring__bg" cx="40" cy="40" r="34"/><circle class="ring__fg" cx="40" cy="40" r="34"/></svg>
+            <span class="ring__label">JS/TS</span><span class="ring__pct">75%</span>
+          </div>
+        </div>
+        <p class="skill-sub">Core OOP, multithreading &amp; concurrency, JVM internals</p>
+      </div>
+
+      <div class="skill-card skill-card--spotlight">
+        <div class="skill-card__head">
+          <span class="skill-icon skill-icon--accent"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+          <h3>AI / ML <span class="badge">differentiator</span></h3>
+        </div>
+        <div class="chip-cloud chip-cloud--accent">
+          <span>Claude API</span><span>Phi-3 Fine-Tuning</span><span>Adaptive Learning Models</span>
+        </div>
+        <p class="skill-sub">Shipped a Claude-powered build assistant in prod + fine-tuned Phi-3 from 65%→85% accuracy at UGA.</p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-card__head">
+          <span class="skill-icon"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="6" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="4" y="15" width="16" height="6" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="7.5" cy="6" r="1" fill="currentColor"/><circle cx="7.5" cy="18" r="1" fill="currentColor"/></svg></span>
+          <h3>Frameworks</h3>
+        </div>
+        <div class="chip-cloud">
+          <span>Spring Boot</span><span>Spring MVC</span><span>Spring Security</span><span>Spring Data JPA</span><span>Hibernate</span><span>REST API Design</span><span>GraphQL</span><span>Django</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-card__head">
+          <span class="skill-icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+          <h3>Databases &amp; System Design</h3>
+        </div>
+        <div class="chip-cloud">
+          <span>PostgreSQL</span><span>MySQL</span><span>MongoDB</span><span>Redis</span><span>Distributed Systems</span><span>Event-driven Architecture</span><span>Message Queues</span><span>Load Balancing</span><span>Fault Tolerance</span><span>Service Discovery</span><span>Design Patterns</span>
+        </div>
+      </div>
+
+      <div class="skill-card skill-card--wide">
+        <div class="skill-card__head">
+          <span class="skill-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0-1.4 0l-7 7a1 1 0 0 0 0 1.4l3 3a1 1 0 0 0 1.4 0l7-7a1 1 0 0 0 0-1.4l-3-3z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 17l-3 3m9-13 1.5-1.5a1.5 1.5 0 1 1 2 2L17 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+          <h3>Tools &amp; Practices</h3>
+        </div>
+        <div class="chip-cloud">
+          <span>AWS</span><span>Docker</span><span>Jenkins</span><span>GitHub Actions</span><span>CI/CD</span><span>RabbitMQ</span><span>Linux</span><span>Bash</span><span>Agile</span><span>Scrum</span><span>SDLC</span><span>JUnit</span><span>Mockito</span><span>Auth (JWT/OAuth2.0)</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="section" id="education">
+    <div class="section__head">
+      <p class="eyebrow">05 — education</p>
+      <h2 class="section__title">Where the <span class="accent">foundations</span> were laid.</h2>
+    </div>
+    <div class="edu__grid">
+      <div class="edu__card">
+        <p class="edu__date">Aug 2023 — Aug 2025</p>
+        <h3>M.S. Computer Science</h3>
+        <p class="edu__org">University of Georgia, USA</p>
+        <p class="edu__gpa">GPA 3.95 / 4.0</p>
+        <p class="edu__courses">Distributed Systems · Software Engineering · Algorithms · ML Optimization</p>
+      </div>
+      <div class="edu__card">
+        <p class="edu__date">Aug 2019 — May 2023</p>
+        <h3>B.E. Computer Engineering</h3>
+        <p class="edu__org">University of Mumbai, India</p>
+        <p class="edu__gpa">GPA 3.59 / 4.0</p>
+        <p class="edu__courses">Data Structures · DBMS · Artificial Intelligence · OOP</p>
+      </div>
+      <div class="edu__card edu__card--cert">
+        <p class="edu__date">Certification</p>
+        <h3>AWS Certified Cloud Practitioner</h3>
+        <p class="edu__org">Amazon Web Services</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section--contact" id="contact">
+    <div class="contact__inner">
+      <p class="eyebrow">06 — contact</p>
+      <h2 class="contact__title">Let's build something <span class="accent">that scales.</span></h2>
+      <p class="contact__desc">Open to roles across India and beyond — backend, distributed systems, or AI-infra. Reach out, I reply fast.</p>
+      <a href="mailto:abhimpat63@gmail.com" class="contact__email">abhimpat63@gmail.com</a>
+      <div class="contact__links">
+        <a href="https://linkedin.com/in/abhimpat" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://github.com/AbhiMP2804" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="tel:+917507858577">+91-7507858577</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Designed &amp; built by Abhishek Patwardhan · <span id="year"></span></p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
